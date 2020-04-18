@@ -54,7 +54,9 @@ module Gollum
       @actor ||= begin
         @options[:name]  = @wiki.default_committer_name if @options[:name].nil?
         @options[:email] = @wiki.default_committer_email if @options[:email].nil?
-        Gollum::Git::Actor.new(@options[:name], @options[:email], @options[:time])
+        a = Gollum::Git::Actor.new(@options[:name], @options[:email], @options[:time])
+        puts a.inspect
+        a
       end
     end
 
